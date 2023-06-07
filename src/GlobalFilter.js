@@ -3,10 +3,12 @@ import React from "react";
 const GlobalFilter = ({ filter, setFilter }) => {
   return (
     <span className="global">
-      Search:{' '}
+      Search :{" "}
       <input
-        value={filter || ''}
+        value={filter || ""}
         onChange={(e) => setFilter(e.target.value)}
+        className="input"
+        placeholder="Search Globally"
       />
     </span>
   );

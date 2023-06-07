@@ -21,7 +21,7 @@ body {
 table {
   width: 80rem;
   height: 50rem;
-  border-collapse: collapse;
+  border-collapse:separate;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -30,9 +30,10 @@ td {
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
+  text-align: center;
 }
 th {
-  text-align: left;
+  text-align: center;
 }
 thead th {
   background-color: #55608f;
@@ -55,4 +56,16 @@ tbody td:hover:before {
 }
 .data{
   display: inline-block;
+}
+.global{
+display: flex ;
+justify-content: center;
+margin: 2rem;
+color: white;
+}
+.input{
+  margin-left: 1rem;
+}
+.column{
+  margin: 1rem;
 }
