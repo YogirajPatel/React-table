@@ -18,10 +18,29 @@ body {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.container1 {
+  position: absolute;
+  top: 92%;
+  left: 50%;
+  
+  margin: 1rem auto auto auto;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 1rem;
+}
+.container2 {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin: 1rem auto auto auto;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 1rem;
+}
 table {
   width: 80rem;
   height: 50rem;
-  border-collapse:separate;
+  border-collapse: separate;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -54,18 +73,28 @@ tbody td:hover:before {
   background-color: rgba(255, 255, 255, 0.2);
   z-index: -1;
 }
-.data{
+.data {
   display: inline-block;
 }
-.global{
-display: flex ;
-justify-content: center;
-margin: 2rem;
-color: white;
+.global {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  color: white;
 }
-.input{
+.input {
   margin-left: 1rem;
 }
-.column{
+.column {
   margin: 1rem;
+}
+.button {
+  text-align: center;
+  color: #5f2c82;
+  padding: 5px;
+  background-color: antiquewhite;
+  border-radius: 5px;
+}
+.button:disabled {
+  opacity: 0.5;
 }
