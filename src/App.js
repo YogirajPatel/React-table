@@ -1,8 +1,16 @@
 import "./App.css";
 import fakeData from "./MOCK_DATA.json";
 import * as React from "react";
-import { useTable, usePagination, useRowSelect } from "react-table";
+import {
+  useTable,
+  usePagination,
+  useRowSelect,
+  useGlobalFilter,
+  useFilters,
+} from "react-table";
 import { Checkbox } from "./Component/Checkbox";
+import GlobalFilter from "./Component/GlobalFilter";
+import ColumnFilter from "./Component/ColumnFilter";
 
 function App() {
   const data = React.useMemo(() => fakeData, []);
@@ -11,31 +19,38 @@ function App() {
       {
         Header: "ID",
         accessor: "id",
+        Filter: ColumnFilter,
       },
       {
         Header: "First Name",
         accessor: "first_name",
+        Filter: ColumnFilter,
       },
       {
         Header: "Last Name",
         accessor: "last_name",
+        Filter: ColumnFilter,
       },
       {
         Header: "Email",
         accessor: "email",
+        Filter: ColumnFilter,
       },
       {
         Header: "Gender",
         accessor: "gender",
+        Filter: ColumnFilter,
       },
       {
         Header: "University",
         accessor: "university",
+        Filter: ColumnFilter,
       },
       {
         Header: "New Column",
         accessor: "new_column",
         Cell: ({ row }) => <button className="button">Edit</button>,
+        Filter: ColumnFilter,
       },
     ],
     []
@@ -57,8 +72,11 @@ function App() {
     setPageSize,
     pageCount,
     selectedFlatRows,
+    setGlobalFilter,
   } = useTable(
     { columns, data, initialState: { pageIndex: 0 } },
+    useGlobalFilter,
+    useFilters,
     usePagination,
     useRowSelect,
     (hooks) => {
@@ -74,10 +92,11 @@ function App() {
       ]);
     }
   );
-  const { pageIndex, pageSize } = state;
+  const { pageIndex, pageSize, globalFilter } = state;
   return (
     <>
       <div className="App">
+        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         <div className="container">
           <table {...getTableProps()}>
             <thead>
@@ -86,6 +105,9 @@ function App() {
                   {headerGroup.headers.map((column) => (
                     <th {...column.getHeaderProps()}>
                       {column.render("Header")}
+                      <div>
+                        {column.canFilter ? column.render("Filter") : null}
+                      </div>
                     </th>
                   ))}
                 </tr>

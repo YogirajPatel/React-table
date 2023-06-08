@@ -14,6 +14,7 @@ body {
   top: 50%;
   left: 50%;
   max-height: 600px;
+  max-width: 80rem;
   overflow-y: scroll;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -83,7 +84,8 @@ tbody td:hover:before {
   color: white;
 }
 .input {
-  margin-left: 1rem;
+  margin-left: 2px;
+  border-radius: 5px;
 }
 .column {
   margin: 1rem;
