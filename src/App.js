@@ -97,15 +97,17 @@ function App() {
   const { pageIndex, pageSize, globalFilter } = state;
   return (
     <>
+      <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
       <div className="App">
-        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         <div className="container">
           <table {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup) => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map((column) => (
-                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                    <th
+                      {...column.getHeaderProps(column.getSortByToggleProps())}
+                    >
                       {column.render("Header")}
                       <span>
                         {column.isSorted

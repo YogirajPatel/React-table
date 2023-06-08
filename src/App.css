@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 html,
 body {
   height: 100%;
@@ -6,6 +11,7 @@ body {
   margin: 0;
   background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
   background: linear-gradient(45deg, #49a09d, #5f2c82);
+  background-repeat: no-repeat;
   font-family: sans-serif;
   font-weight: 100;
 }
@@ -14,7 +20,7 @@ body {
   top: 50%;
   left: 50%;
   max-height: 600px;
-  max-width: 80rem;
+  max-width: 90rem;
   overflow-y: scroll;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -23,21 +29,12 @@ body {
   position: absolute;
   top: 92%;
   left: 50%;
-  
   margin: 1rem auto auto auto;
   transform: translate(-50%, -50%);
   display: flex;
   gap: 1rem;
 }
-.container2 {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin: 1rem auto auto auto;
-  transform: translate(-50%, -50%);
-  display: flex;
-  gap: 1rem;
-}
+
 table {
   width: 80rem;
   height: 50rem;
@@ -80,8 +77,8 @@ tbody td:hover:before {
 .global {
   display: flex;
   justify-content: center;
-  margin: 2rem;
   color: white;
+  transform: translate(0, 250%);
 }
 .input {
   margin-left: 2px;
@@ -99,4 +96,62 @@ tbody td:hover:before {
 }
 .button:disabled {
   opacity: 0.5;
+}
+@media (max-width: 600px) {
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  .container {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 1rem;
+  }
+  .global {
+    margin-top: 2rem;
+  }
+  table {
+    width: 100%;
+    height: 100%;
+    border-collapse: separate;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 0;
+  }
+  .container1 {
+    display: block;
+    max-height: 2rem;
+    max-width: fit-content;
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+    max-height: 70%;
+    overflow: scroll;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+  .global {
+    margin: 0;
+    transform: translate(0, 340%);
+  }
+
+  table {
+    width: 80%;
+    height: 100%;
+    border-collapse: separate;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: scroll;
+  }
+  .container1 {
+    display: flex;
+    gap: 3px;
+    transform: translate(-50%, -90%);
+    max-height: fit-content;
+  }
 }
