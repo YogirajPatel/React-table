@@ -7,6 +7,7 @@ import {
   useRowSelect,
   useGlobalFilter,
   useFilters,
+  useSortBy,
 } from "react-table";
 import { Checkbox } from "./Component/Checkbox";
 import GlobalFilter from "./Component/GlobalFilter";
@@ -77,6 +78,7 @@ function App() {
     { columns, data, initialState: { pageIndex: 0 } },
     useGlobalFilter,
     useFilters,
+    useSortBy,
     usePagination,
     useRowSelect,
     (hooks) => {
@@ -103,8 +105,15 @@ function App() {
               {headerGroups.map((headerGroup) => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map((column) => (
-                    <th {...column.getHeaderProps()}>
+                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                       {column.render("Header")}
+                      <span>
+                        {column.isSorted
+                          ? column.isSortedDesc
+                            ? "\u2193"
+                            : "\u2191"
+                          : " "}
+                      </span>
                       <div>
                         {column.canFilter ? column.render("Filter") : null}
                       </div>
