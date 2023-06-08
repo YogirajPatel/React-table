@@ -9,6 +9,12 @@ const GlobalFilter = ({ filter, setFilter }) => {
         onChange={(e) => setFilter(e.target.value)}
         className="input"
         placeholder="Search Globally"
+        style={{
+          border: "1px solid",
+          color: "black",
+          borderRadius: "5px",
+          padding: "4px",
+        }}
       />
     </span>
   );

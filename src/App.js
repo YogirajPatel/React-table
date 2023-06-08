@@ -12,6 +12,7 @@ import {
 import { Checkbox } from "./Component/Checkbox";
 import GlobalFilter from "./Component/GlobalFilter";
 import ColumnFilter from "./Component/ColumnFilter";
+import EditableCell from "./Component/EditableCell";
 
 function App() {
   const data = React.useMemo(() => fakeData, []);
@@ -26,26 +27,31 @@ function App() {
         Header: "First Name",
         accessor: "first_name",
         Filter: ColumnFilter,
+        Cell: EditableCell,
       },
       {
         Header: "Last Name",
         accessor: "last_name",
         Filter: ColumnFilter,
+        Cell: EditableCell,
       },
       {
         Header: "Email",
         accessor: "email",
         Filter: ColumnFilter,
+        Cell: EditableCell,
       },
       {
         Header: "Gender",
         accessor: "gender",
         Filter: ColumnFilter,
+        Cell: EditableCell,
       },
       {
         Header: "University",
         accessor: "university",
         Filter: ColumnFilter,
+        Cell: EditableCell,
       },
       {
         Header: "New Column",
@@ -139,15 +145,16 @@ function App() {
           </table>
         </div>
       </div>
-      {console.log(
-        JSON.stringify(
-          {
-            selectedFlatRows: selectedFlatRows.map((row) => row.original),
-          },
-          null,
-          2
-        )
-      )}
+      {selectedFlatRows.length > 0 &&
+        alert(
+          JSON.stringify(
+            {
+              selectedFlatRows: selectedFlatRows.map((row) => row.original),
+            },
+            null,
+            2
+          )
+        )}
       <div className="container1">
         <span className="button">
           Page{" "}

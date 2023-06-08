@@ -10,7 +10,7 @@ const ColumnFilter = ({ column }) => {
           value={filterValue || ""}
           onChange={(e) => setFilter(e.target.value)}
           placeholder="Search Column"
-          style={{marginTop: "5px", textAlign: "center"}}
+          style={{ marginTop: "5px", textAlign: "center" }}
         />
       </span>
     </div>
